@@ -44,10 +44,23 @@ class CarController extends Controller
             'owner_name' => $request->owner_name,
             'owner_phone' => $request->owner_phone,
             'owner_image' => $ownerImagePath,
+            'user_email' => auth()->user()->email, // 👈 attach logged-in user
         ]);
 
         // Redirect to the list page with a success message
         return redirect()->route('cars.index', $segment)
                          ->with('success', 'Car added successfully!');
     }
+
+    public function destroy(Car $car)
+{
+    if ($car->user_email !== auth()->user()->email) {
+        abort(403, 'Unauthorized action.');
+    }
+
+    $car->delete();
+
+    return redirect()->route('cars.index', $car->segment)
+                     ->with('success', 'Car deleted successfully.');
+}
 }

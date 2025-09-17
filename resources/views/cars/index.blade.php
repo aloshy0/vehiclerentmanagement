@@ -4,25 +4,30 @@
     </x-slot>
 
     <div class="py-8 max-w-4xl mx-auto px-4">
-        <a href="{{ route('cars.create', $segment) }}" 
-           class="mb-4 inline-block px-4 py-2 bg-blue-600 text-white rounded">
-           Add a Vehicle
-        </a>
+
+  {{-- Add Vehicle Button --}}
+<a href="{{ route('cars.create', $segment) }}" 
+   class="mb-6 inline-block px-4 py-2 bg-blue-600 text-black rounded hover:bg-blue-700">
+   Add a Vehicle
+</a>
 
         @if($cars->isEmpty())
             <p class="text-gray-600">No vehicles in {{ $segment }} yet.</p>
         @else
-            <div class="grid gap-4">
+            <div class="grid gap-6">
+
                 @foreach($cars as $car)
                     <div class="p-4 bg-white rounded shadow flex items-center gap-4">
+
                         {{-- Vehicle Image --}}
                         @if(isset($car->image))
                             <img src="{{ asset('storage/' . $car->image) }}" 
                                  alt="{{ $car->name }}" class="w-24 h-24 object-cover rounded">
                         @endif
-                        
+
+                        {{-- Car Details --}}
                         <div class="flex-1">
-                            <div class="font-medium text-lg">{{ $car->name }}</div>
+                            <div class="font-semibold text-lg">{{ $car->name }}</div>
                             <div class="text-gray-600">Brand: {{ $car->brand }}</div>
                             <div class="text-gray-600">Price: ₹{{ $car->price }}</div>
                             <div class="text-gray-600">Owner: {{ $car->owner_name }}</div>
@@ -34,8 +39,24 @@
                             <img src="{{ asset('storage/' . $car->owner_image) }}" 
                                  alt="{{ $car->owner_name }}" class="w-16 h-16 object-cover rounded-full">
                         @endif
+
+                        {{-- Delete Button (only for owner) --}}
+                        @if($car->user_email === auth()->user()->email)
+                            <form action="{{ route('cars.destroy', $car) }}" method="POST" 
+                                  onsubmit="return confirm('Are you sure you want to delete this car?');"
+                                  class="ml-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" 
+                                        class="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">
+                                    Delete
+                                </button>
+                            </form>
+                        @endif
+
                     </div>
                 @endforeach
+
             </div>
         @endif
     </div>

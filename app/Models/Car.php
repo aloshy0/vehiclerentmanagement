@@ -17,5 +17,6 @@ class Car extends Model
         'owner_name',
         'owner_phone',
         'owner_image',
+        'user_email',
     ];
 }
