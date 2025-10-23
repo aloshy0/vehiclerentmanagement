@@ -15,25 +15,25 @@
                 <ul class="space-y-2">
                     <li>
                         <a href="{{ route('cars.index', ['segment' => 'sedan']) }}"
-                           class="text-blue-600 hover:underline">
+                           class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
                             Sedans
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('cars.index', ['segment' => 'suv']) }}"
-                           class="text-blue-600 hover:underline">
+                           class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
                             SUVs
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('cars.index', ['segment' => 'hatchback']) }}"
-                           class="text-blue-600 hover:underline">
+                           class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
                             Hatchbacks
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('cars.index', ['segment' => 'luxury']) }}"
-                           class="text-blue-600 hover:underline">
+                           class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
                             Luxury Cars
                         </a>
                     </li>

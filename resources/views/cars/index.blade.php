@@ -7,7 +7,7 @@
 
   {{-- Add Vehicle Button --}}
 <a href="{{ route('cars.create', $segment) }}" 
-   class="mb-6 inline-block px-4 py-2 bg-blue-600 text-black rounded hover:bg-blue-700">
+   class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
    Add a Vehicle
 </a>
 

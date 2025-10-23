@@ -12,10 +12,7 @@
     <div class="relative z-10 flex items-center justify-center h-screen overflow-hidden">
         <div class="w-full max-w-md bg-black rounded-xl shadow-2xl p-8 text-white">
             
-            <!-- Logo -->
-            <div class="flex justify-center mb-6">
-                <img src="{{ asset('assets/Gowheels.png') }}" alt="Logo" class="h-16">
-            </div>
+            
 
             <!-- Session Status -->
             <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -65,7 +62,7 @@
                         </a>
                     @endif
 
-                    <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-md shadow-md text-white font-semibold">
+                    <button type="submit" class="bg-white text-gray-900 px-4 py-2 rounded-lg shadow hover:shadow-md">
                         {{ __('Log in') }}
                     </button>
                 </div>

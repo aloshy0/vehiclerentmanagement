@@ -43,15 +43,20 @@
 
                 <!-- Owner Image -->
                 <div class="mb-4">
-                    <label class="block font-semibold">Owner Image</label>
+                    <label class="block font-semibold">Car Image</label>
                     <input type="file" name="owner_image" class="w-full">
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-                    Add Vehicle
-                </button>
+                    <button type="submit" class="inline-block bg-blue-500 text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-150">
+                       Add Vehicle
+                    </button>
+
             </form>
         </div>
     </div>
 </x-app-layout>
+
+
+
+       
