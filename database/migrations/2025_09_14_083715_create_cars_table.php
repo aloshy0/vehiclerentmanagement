@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->string('brand');
-        $table->string('segment'); // e.g., sedan, suv, hatchback
-        $table->decimal('price', 10, 2)->nullable();
-        $table->timestamps();
+            $table->id();
+            $table->string('name');
+            $table->string('brand');
+            $table->string('segment'); // e.g., sedan, suv, hatchback
+            $table->decimal('price', 10, 2)->nullable();
+            $table->string('owner_name');
+            $table->string('owner_phone');
+            $table->string('owner_image')->nullable(); // store filename/path
+            $table->string('user_email'); // email of the user who added the car
+            $table->timestamps();
         });
     }
 
